@@ -69,10 +69,10 @@ public class MainActivity extends AppCompatActivity {
         ImageRecognitionHelper helper = new ImageRecognitionHelper();
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.asdf);
 
-        helper.recognizeMainSubject(bitmap, new ImageRecognitionHelper.MainSubjectCallback() {
+        helper.recognizeImage(bitmap, new ImageRecognitionHelper.RecognitionCallback() {
             @Override
-            public void onSuccess(String label, float confidence) {
-                Log.d("ImageRecognition", "Main subject: " + label + " (confidence: " + confidence + ")");
+            public void onSuccess(List<String> labels) {
+                Log.d("ImageRecognition", "Success: " + labels);
             }
 
             @Override
